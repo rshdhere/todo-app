@@ -7,7 +7,7 @@ const port = 3000;
 app.use(express.json());
 
 // creating all the todos
-app.post("/todo", (req, res) => {
+app.post("/todo", async (req, res) => {
     // adding the logic for input validation
     const createPayload = req.body;
     const parsedPayload = createTodo.safeParse(createPayload);
@@ -18,7 +18,7 @@ app.post("/todo", (req, res) => {
         return;
     }
     // add mongodb here
-    Todo.create({
+    await Todo.create({
         title : createPayload.title,
         description : createPayload.description
     })
