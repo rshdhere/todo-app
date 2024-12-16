@@ -55,6 +55,10 @@ app.put("/completed", async (req, res) => {
     }, {
         completed : true
     })
+
+    res.json({
+        msg : "Todo marked as completed"
+    })
 })
 
 connectDB()
