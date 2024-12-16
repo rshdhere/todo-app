@@ -10,7 +10,10 @@ app.use(express.json());
 app.post("/todo", async (req, res) => {
     // adding the logic for input validation
     const createPayload = req.body;
+    console.log("Request Body", req.body);
+    
     const parsedPayload = createTodo.safeParse(createPayload);
+    console.log("Parsed payload:", parsedPayload);
     if (!parsedPayload.success){
         res.status(411).json({
             msg : "you entered the wrong inputs"
