@@ -39,7 +39,7 @@ app.get("/todos", async (req, res) => {
 });
 
 // marking todos as done aka updating all the todos
-app.put("/completed", (req, res) => {
+app.put("/completed", async (req, res) => {
     // adding the logic for input validation
     const updatePayload = req.body;
     const parsedPayload = updateTodo.safeParse(updatePayload);
@@ -49,6 +49,12 @@ app.put("/completed", (req, res) => {
         })
         return;
     }
+
+    await Todo.update({
+        _id : req.body.id
+    }, {
+        completed : true
+    })
 })
 
 connectDB()
