@@ -39,6 +39,13 @@ app.put("/completed", (req, res) => {
     }
 })
 
-app.listen(port, () => {
-    console.log(`you server is listening on the port ${port}`);
-})
+connectDB()
+    .then(() => {
+        console.log("Database connection is established");
+        app.listen(port, () => {
+            console.log(`you server is listening on the port ${port}`);
+        });
+    })
+    .catch((err) => {
+        console.error("Error occured while connecting to the database")
+    })
