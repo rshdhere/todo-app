@@ -61,13 +61,16 @@ app.put("/completed", async (req, res) => {
     })
 })
 
-connectDB()
-    .then(() => {
+const startServer = async () => {
+    try {
+        await connectDB();
         console.log("Database connection is established");
         app.listen(port, () => {
-            console.log(`you server is listening on the port ${port}`);
+            console.log(`Your server is listening on the port ${port}`);
         });
-    })
-    .catch((err) => {
-        console.error("Error occured while connecting to the database")
-    })
+    } catch (err) {
+        console.error("Error occurred while connecting to the database");
+    }
+};
+
+startServer();
