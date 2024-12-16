@@ -30,8 +30,8 @@ app.post("/todo", async (req, res) => {
 });
 
 // seeing all the todos
-app.get("/todos", (req, res) => {
-
+app.get("/todos", async (req, res) => {
+    const allTodos = await Todo.find();
 });
 
 // marking todos as done aka updating all the todos
