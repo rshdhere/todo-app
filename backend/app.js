@@ -1,6 +1,6 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
-const { connectDB } = require("./database");
+const { connectDB, Todo } = require("./database");
 const app = express();
 const port = 3000;
 
@@ -18,6 +18,14 @@ app.post("/todo", (req, res) => {
         return;
     }
     // add mongodb here
+    Todo.create({
+        title : createPayload.title,
+        description : createPayload.description
+    })
+
+    res.json({
+        msg : "Todo created!!"
+    })
 
 });
 
