@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "a simple backend server for a todo app",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "author": "M Raashed",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
