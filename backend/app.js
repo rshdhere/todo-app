@@ -19,6 +19,7 @@ app.post("/todo", async (req, res) => {
     }
     // add mongodb here
     await Todo.create({
+        // if using zod the always pass the validated inputs like `parsedpayload.data`
         title : parsedPayload.data.title,
         description : parsedPayload.data.description,
         completed : false
