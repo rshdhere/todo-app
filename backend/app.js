@@ -1,10 +1,13 @@
+// future updates are yet to come
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
 const { connectDB, Todo } = require("./database");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 // creating all the todos
 app.post("/todo", async (req, res) => {
