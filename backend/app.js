@@ -5,6 +5,8 @@ const { connectDB, Todo } = require("./database");
 const cors = require("cors");
 const app = express();
 const port = 3000;
+const dotenv = require("dotenv").config();
+
 
 app.use(express.json());
 app.use(cors());
